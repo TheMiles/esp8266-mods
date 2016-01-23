@@ -3,6 +3,7 @@
 IP=""
 BAUD=9600
 DEV=/dev/ttyUSB0
+LUATOOL_PATH=~/Projects/luatool
 
 [ -e ./local.sh ] && . ./local.sh
 
@@ -48,7 +49,7 @@ if [ ! -z "$IP" ] && ping -q -c1 -W3 "$IP" > /dev/null; then
 else
     [ ! -z "$IP" ] && echo "$IP is down"
 fi
-LUATOOL="luatool.py -p $DEV -b $BAUD $OPT"
+LUATOOL="$LUATOOL_PATH/luatool.py -p $DEV -b $BAUD $OPT"
 
 TS=.timestamp
 
